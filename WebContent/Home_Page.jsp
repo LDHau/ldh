@@ -18,7 +18,7 @@
 	<a href="list-book?idcate=<%=ca.getStrIdCategory()%>">Danh sách</a><br>
 	<%} %>
 	<br>
-	<a href="add-ctrl">Thêm sách</a>
+	<a href="Add_Book.jsp">Thêm sách</a>
 	<br>
 	<form action="#">
 		<input type="text" placeholder="Nhap ten sach">
