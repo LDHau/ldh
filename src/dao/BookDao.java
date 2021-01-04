@@ -117,5 +117,13 @@ public class BookDao {
 		ps.setString(9, bnbook.getStrStatus());
 		ps.execute();
 	}
-		
+	
+	public void delBook(int bnbook) throws Exception {
+		Connect ct = new Connect();
+		Connection cn = ct.getConnect();
+		String sql = "DELETE FROM books WHERE id_book = ?";
+		PreparedStatement ps = cn.prepareStatement(sql);
+		ps.setInt(1, bnbook);
+		ps.execute();
+	}
 }
