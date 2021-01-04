@@ -26,6 +26,19 @@ public class BookBean {
 		this.strStatus  = _strStatus;
 	}
 
+	public BookBean(String _strName, String _strAuthor, float _floAmount, int _intNumberPages, float _floWeight,
+			int _intPublishingYear, String _strSummary, String _strIdCategory, String _strStatus) {
+		this.strName = _strName;
+		this.strAuthor  = _strAuthor;
+		this.floAmount  = _floAmount;
+		this.intNumberPages = _intNumberPages;
+		this.floWeight  = _floWeight;
+		this.intPublishingYear = _intPublishingYear;
+		this.strSummary = _strSummary;
+		this.strIdCategory = _strIdCategory;
+		this.strStatus  = _strStatus;
+	}
+
 	public int getIntIdBook() {
 		return intIdBook;
 	}

@@ -104,7 +104,18 @@ public class BookDao {
 	public void addBook(BookBean bnbook) throws Exception {
 		Connect ct = new Connect();
 		Connection cn = ct.getConnect();
-		String sql = "INSERT INTO books (name, author, amount, number_pages, weight, publishing_year, summary, ) VALUES ";
+		String sql = "INSERT INTO books (name, author, amount, number_pages, weight, publishing_year, summary, id_category, status) VALUES (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement ps = cn.prepareStatement(sql);
+		ps.setString(1, bnbook.getStrName());
+		ps.setString(2, bnbook.getStrAuthor());
+		ps.setFloat(3, bnbook.getFloWeight());
+		ps.setInt(4, bnbook.getIntNumberPages());
+		ps.setFloat(5, bnbook.getFloWeight());
+		ps.setInt(6, bnbook.getIntPublishingYear());
+		ps.setString(7, bnbook.getStrSummary());
+		ps.setString(8, bnbook.getStrIdCategory());
+		ps.setString(9, bnbook.getStrStatus());
+		ps.execute();
 	}
 		
 }
