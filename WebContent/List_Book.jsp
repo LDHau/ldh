@@ -22,6 +22,7 @@
 	Tình trạng:	<%=bo.getStrStatus() %> <br>
 	<%count++; %>
 	<a href="edit-ctrl?idb=<%=bo.getIntIdBook()%>">EDIT</a> <br>
+	<a href="del-ctrl?idb=<%=bo.getIntIdBook()%>">DELETE</a> <br>
 	<%} %>
 ---------------------------------------------------	<br>
 	
