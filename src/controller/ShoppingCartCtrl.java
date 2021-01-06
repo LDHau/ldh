@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bo.ShoppingCartBo;
 import dao.ShoppingCartDao;
 
 /**
@@ -36,21 +37,17 @@ public class ShoppingCartCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String idl = (String) session.getAttribute("idl");
 		String idp = (String) session.getAttribute("idp");
+		
 		if (idl != null && idp != null) {
-			ShoppingCartDao daoShoppingCart = new ShoppingCartDao();
+			ShoppingCartBo boShoppingCart = new ShoppingCartBo();
 			int idb = Integer.parseInt(request.getParameter("idb"));
 			try {
 				if (idb != 0) {
-					request.setAttribute("lss", daoShoppingCart.addShoppingCart(idb));
-					RequestDispatcher rd = request.getRequestDispatcher("ShoppingCart.jsp");
-					rd.forward(request, response);
+					request.setAttribute("lss", boShoppingCart.addShoppingCart(idb));
 				}
 				else {
-					request.setAttribute("lss", daoShoppingCart.getShoppingCart());
-					RequestDispatcher rd = request.getRequestDispatcher("ShoppingCart.jsp");
-					rd.forward(request, response);
+					request.setAttribute("lss", boShoppingCart.getCart());
 				}
-				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -58,7 +55,11 @@ public class ShoppingCartCtrl extends HttpServlet {
 		}
 		else {
 			response.sendRedirect("Login.jsp");
+			return;
 		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("ShoppingCart.jsp");
+		rd.forward(request, response);
 		
 	}
 

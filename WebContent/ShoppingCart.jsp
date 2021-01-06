@@ -17,7 +17,7 @@
 	<%=scb.getIntUnitPrice() %><br>
 	<%=scb.getIntQuantity() %><br>
 	<%=scb.getStrDiscountCode() %><br>
-	Total = <%=scb.getIntUnitPrice() %> * <%=scb.getIntQuantity() %><br>
+	Total = <%=scb.getIntUnitPrice() * scb.getIntQuantity() %><br>
 	<%} %>
 </body>
 </html>

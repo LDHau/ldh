@@ -35,7 +35,7 @@ public class ManageEdit extends HttpServlet {
 		int idbook = Integer.parseInt(request.getParameter("idbook"));
 		String name = request.getParameter("nameb");
 		String author = request.getParameter("authorb");
-		float amount = Float.parseFloat(request.getParameter("amountb"));
+		int amount = Integer.parseInt(request.getParameter("amountb"));
 		int number = Integer.parseInt(request.getParameter("numberb"));
 		float weight = Float.parseFloat(request.getParameter("weightb"));
 		int year = Integer.parseInt(request.getParameter("yearb"));

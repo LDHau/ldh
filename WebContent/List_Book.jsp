@@ -14,7 +14,7 @@
 	<%=count %> <br>
 	Tên sách:	<%=bo.getStrName() %> <br>
 	Tác giả:	<%=bo.getStrAuthor() %> <br>
-	Giá tiền:	<%=bo.getFloAmount() %> <br>
+	Giá tiền:	<%=bo.getIntAmount() %> <br>
 	Số trang:	<%=bo.getIntNumberPages() %> <br>
 	Trọng lượng: <%=bo.getFloWeight() %> <br>
 	Năm xuất bản: <%=bo.getIntPublishingYear() %> <br>

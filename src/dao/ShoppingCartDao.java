@@ -19,7 +19,7 @@ public class ShoppingCartDao {
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
 			int intIdBook = rs.getInt("id_book");
-			int intUnitPrice = rs.getInt("intUnitPrice");
+			int intUnitPrice = rs.getInt("unit_price");
 			int intQuantity = rs.getInt("quantity");
 			String strDiscountCode = rs.getString("discount_code");
 			String strIdCustomers = rs.getString("id_customers");
@@ -43,38 +43,40 @@ public class ShoppingCartDao {
 		ps.execute();
 	}
 	
-	public Boolean checkShoppingCart(int idBook) throws Exception {	
-		int sizeAry = getShoppingCart().size();
-		for(int i = 0; i < sizeAry; i++) {
-			if(getShoppingCart().get(i).getIntIdBook() == idBook) {
-				return true;
-			}
-		}
-		return false;
-	}
+//	public Boolean checkShoppingCart(int idBook) throws Exception {	
+//		int sizeAry = getShoppingCart().size();
+//		
+//		for(int i = 0; i < sizeAry; i++) {
+//			int tet = getShoppingCart().get(i).getIntIdBook();
+//			if(getShoppingCart().get(i).getIntIdBook() == idBook) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 	
-	public Boolean addShoppingCart(int idBook) throws Exception {
-		int n = getShoppingCart().size();
-		boolean statusCart = addShoppingCart(idBook);
-		for(int i = 0; i < n; i++) {
-			if(getShoppingCart().get(i).getIntIdBook() == idBook && statusCart == false) {
-				ShoppingCartBean beanCart = new ShoppingCartBean(getShoppingCart().get(i).getIntIdBook(), 
-					getShoppingCart().get(i).getIntUnitPrice(), getShoppingCart().get(i).getIntQuantity(), 
-					getShoppingCart().get(i).getStrDiscountCode(), getShoppingCart().get(i).getStrIdCustomers());
-				insertDBCart(beanCart);
-				return true;
-			}
-		}
-		if(statusCart == true) {
-			int size = getShoppingCart().size();
-			for(int i = 0; i < size; i++) {
-				if(getShoppingCart().get(i).getIntIdBook() == idBook) {
-					getShoppingCart().get(i).setIntQuantity(getShoppingCart().get(i).getIntQuantity() + 1);
-				}
-			}
-		}
-		return false;
-	}
+//	public Boolean addShoppingCart(int idBook) throws Exception {
+//		int n = getShoppingCart().size();
+//		boolean statusCart = checkShoppingCart(idBook);
+//		for(int i = 0; i < n; i++) {
+//			if(getShoppingCart().get(i).getIntIdBook() == idBook && statusCart == false) {
+//				ShoppingCartBean beanCart = new ShoppingCartBean(getShoppingCart().get(i).getIntIdBook(), 
+//					getShoppingCart().get(i).getIntUnitPrice(), getShoppingCart().get(i).getIntQuantity(), 
+//					getShoppingCart().get(i).getStrDiscountCode(), getShoppingCart().get(i).getStrIdCustomers());
+//				insertDBCart(beanCart);
+//				return true;
+//			}
+//		}
+//		if(statusCart == true) {
+//			int size = getShoppingCart().size();
+//			for(int i = 0; i < size; i++) {
+//				if(getShoppingCart().get(i).getIntIdBook() == idBook) {
+//					getShoppingCart().get(i).setIntQuantity(getShoppingCart().get(i).getIntQuantity() + 1);
+//				}
+//			}
+//		}
+//		return false;
+//	}
 
 	
 	

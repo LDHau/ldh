@@ -13,7 +13,7 @@
 		ID sách:	<input type="text" placeholder="Nhập ID sách" value="<%=beanBook.getIntIdBook()%>" name="idbook">
 		Tên sách:	<input type="text" placeholder="Nhập tên sách" value="<%=beanBook.getStrName()%>" name="nameb"> <br>
 		Tác giả:	<input type="text" placeholder="Nhập tên tác giả" value="<%=beanBook.getStrAuthor()%>" name="authorb"> <br>
-		Giá:		<input type="text" placeholder="Nhập giá sách"    value="<%=beanBook.getFloAmount()%>" name="amountb"> <br>
+		Giá:		<input type="text" placeholder="Nhập giá sách"    value="<%=beanBook.getIntAmount()%>" name="amountb"> <br>
 		Số trang:	<input type="text" placeholder="Nhập số trang sách" value="<%=beanBook.getIntNumberPages()%>" name="numberb"> <br>
 		Cân nặng: 	<input type="text" placeholder="Nhập cân nặng của sách" value="<%=beanBook.getFloWeight()%>" name="weightb"> <br>
 		Năm xuất bản: <input type="text" placeholder="Nhập năm xuất bản" value="<%=beanBook.getIntPublishingYear()%>" name="yearb"> <br>

@@ -21,14 +21,14 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			float floAmount   = rs.getFloat("amount");
+			int intAmount   = rs.getInt("amount");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
 			String strStatus  = rs.getString("status");
-			BookBean beanBook = new BookBean(intIdBook, strName, strAuthor, floAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);
+			BookBean beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);
 			aryBook.add(beanBook);
 			
 		}
@@ -47,14 +47,14 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			float floAmount   = rs.getFloat("amount");
+			int intAmount   = rs.getInt("amount");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
 			String strStatus  = rs.getString("status");
-			beanBook = new BookBean(intIdBook, strName, strAuthor, floAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
+			beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
 			aryBook.add(beanBook);
 		}
 		return aryBook;
@@ -71,14 +71,14 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			float floAmount   = rs.getFloat("amount");
+			int intAmount = rs.getInt("amount");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
 			String strStatus  = rs.getString("status");
-			beanBook = new BookBean(intIdBook, strName, strAuthor, floAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
+			beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
 		}
 		return beanBook;
 	}

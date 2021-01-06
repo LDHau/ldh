@@ -20,9 +20,7 @@
 	<br>
 	<a href="Add_Book.jsp">Thêm sách</a>
 	<br>
-	<form action="#">
-		<input type="text" placeholder="Nhap ten sach">
-		<input type="submit" value="button">
-	</form>
+	<a href="Login.jsp">Login</a>
+	<a href="logout-ctrl">Logout</a>
 </body>
 </html>

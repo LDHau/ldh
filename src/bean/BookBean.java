@@ -4,7 +4,7 @@ public class BookBean {
 	private int intIdBook;
 	private String strName;
 	private String strAuthor;
-	private float floAmount;
+	private int intAmount;
 	private int intNumberPages;
 	private float floWeight;
 	private int intPublishingYear;
@@ -12,12 +12,12 @@ public class BookBean {
 	private String strIdCategory;
 	private String strStatus;
 	
-	public BookBean(int _intIdBook, String _strName, String _strAuthor, float _floAmount, int _intNumberPages, float _floWeight,
+	public BookBean(int _intIdBook, String _strName, String _strAuthor, int _intAmount, int _intNumberPages, float _floWeight,
 						int _intPublishingYear, String _strSummary, String _strIdCategory, String _strStatus) {
 		this.intIdBook = _intIdBook;
 		this.strName = _strName;
 		this.strAuthor  = _strAuthor;
-		this.floAmount  = _floAmount;
+		this.intAmount  = _intAmount;
 		this.intNumberPages = _intNumberPages;
 		this.floWeight  = _floWeight;
 		this.intPublishingYear = _intPublishingYear;
@@ -26,11 +26,11 @@ public class BookBean {
 		this.strStatus  = _strStatus;
 	}
 
-	public BookBean(String _strName, String _strAuthor, float _floAmount, int _intNumberPages, float _floWeight,
+	public BookBean(String _strName, String _strAuthor, int _intAmount, int _intNumberPages, float _floWeight,
 			int _intPublishingYear, String _strSummary, String _strIdCategory, String _strStatus) {
 		this.strName = _strName;
 		this.strAuthor  = _strAuthor;
-		this.floAmount  = _floAmount;
+		this.intAmount  = _intAmount;
 		this.intNumberPages = _intNumberPages;
 		this.floWeight  = _floWeight;
 		this.intPublishingYear = _intPublishingYear;
@@ -63,12 +63,12 @@ public class BookBean {
 		this.strAuthor = strAuthor;
 	}
 
-	public float getFloAmount() {
-		return floAmount;
+	public float getIntAmount() {
+		return intAmount;
 	}
 
-	public void setFloAmount(float floAmount) {
-		this.floAmount = floAmount;
+	public void setIntAmount(int intAmount) {
+		this.intAmount = intAmount;
 	}
 
 	public int getIntNumberPages() {
