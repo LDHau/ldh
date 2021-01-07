@@ -25,13 +25,12 @@ DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books` (
   `id_book` int NOT NULL AUTO_INCREMENT,
   `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `amount` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
   `number_pages` int NOT NULL,
   `weight` float NOT NULL,
   `publishing_year` int NOT NULL,
   `summary` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `id_category` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_book`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -43,7 +42,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,'Nguyễn Nhật Ánh',200,5123123,200,1000,'Học trò','TT','Còn hàng','Đi qua hoa cúc'),(2,'Trương Gia Quyền',80000,196,280,2020,'HACK NÃO CHỮ HÁN','KH','Còn hàng','Hack não chữ Hán'),(3,'teste',100000,200,250,2000,'Học trò','TT','Hết hàng','Mắc biếc');
+INSERT INTO `books` VALUES (1,'Nguyễn Nhật Ánh',300,5123123,500,1000,'Học trò','TT','Đi qua hoa cúc'),(2,'Trương Gia Quyền',80000,196,280,2020,'HACK NÃO CHỮ HÁN','KH','Hack não chữ Hán'),(3,'teste',250,200,250,2000,'Học trò','TT','Mắc biếc');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,31 +124,59 @@ INSERT INTO `discount` VALUES ('Y21',50,1,NULL);
 UNLOCK TABLES;
 
 --
--- Table structure for table `shopping_cart`
+-- Table structure for table `order_detail`
 --
 
-DROP TABLE IF EXISTS `shopping_cart`;
+DROP TABLE IF EXISTS `order_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `shopping_cart` (
-  `cart_no` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `order_detail` (
+  `id_order_detail` int NOT NULL AUTO_INCREMENT,
   `id_book` int NOT NULL,
-  `unit_price` int NOT NULL,
+  `name_book` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `price_book` int NOT NULL,
   `quantity` int NOT NULL,
   `discount_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `id_customers` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`cart_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `into_money` int NOT NULL,
+  `id_orders` int DEFAULT NULL,
+  PRIMARY KEY (`id_order_detail`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `shopping_cart`
+-- Dumping data for table `order_detail`
 --
 
-LOCK TABLES `shopping_cart` WRITE;
-/*!40000 ALTER TABLE `shopping_cart` DISABLE KEYS */;
-INSERT INTO `shopping_cart` VALUES (1,20,10001,12,'20','20');
-/*!40000 ALTER TABLE `shopping_cart` ENABLE KEYS */;
+LOCK TABLES `order_detail` WRITE;
+/*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+INSERT INTO `order_detail` VALUES (7,1,'Đi qua hoa cúc',300,1,'Y21',300,1);
+/*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id_orders` int NOT NULL AUTO_INCREMENT,
+  `name_customers` int NOT NULL,
+  `total` int NOT NULL,
+  `date` date DEFAULT NULL,
+  `id_order_detail` int DEFAULT NULL,
+  PRIMARY KEY (`id_orders`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -161,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-06 20:52:57
+-- Dump completed on 2021-01-07 21:07:39
