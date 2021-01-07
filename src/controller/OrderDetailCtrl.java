@@ -46,13 +46,8 @@ public class OrderDetailCtrl extends HttpServlet {
 			int price = Integer.parseInt(request.getParameter("priceb"));
 			int quantily = Integer.parseInt(request.getParameter("quantilyb"));
 			int idOrders = Integer.parseInt(request.getParameter("idordersb"));
-			
-			try {
-				
-//				request.setAttribute("OrderBook", boShoppingCart.addOrderDetail(idBook, name, price, quantily, idOrders));
-				
-				boolean statis = boShoppingCart.addOrderDetail(idBook, name, price, quantily, idOrders);
-				
+			try {	
+				boShoppingCart.addOrderDetail(idBook, name, price, quantily, idOrders);
 				request.setAttribute("OrderBook", boShoppingCart.getDetail());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

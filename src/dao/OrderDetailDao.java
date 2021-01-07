@@ -45,18 +45,26 @@ public class OrderDetailDao {
 		ps.setInt(6, beanDetail.getIntIntoMoney());
 		ps.setInt(7, beanDetail.getIntIdOrders());
 		ps.execute();
-	}
+	}		
 	
-	public void addQuantily(int idBook, int quantilyOrder) throws Exception {
+	public void addQuantily(OrderDetailBean beanOrderDetail) throws Exception {
 		Connect ct = new Connect();
 		Connection cn = ct.getConnect();
-		String sql = "UPDATE order_detail SET ? = ? + 1 WHERE id_book = ?";
+		String sql = "UPDATE order_detail SET quantity = ? WHERE id_book = ?";
 		PreparedStatement ps = cn.prepareStatement(sql);
-		ps.setInt(1, quantilyOrder);
-		ps.setInt(2, quantilyOrder);
-		ps.setInt(3, idBook);
+		ps.setInt(1, beanOrderDetail.getIntQuantity() + 1);
+		ps.setInt(2, beanOrderDetail.getIntIdBook());
 		ps.execute();
 	}
 	
+	public void addIntoMonney(int money, int idBook) throws Exception {
+		Connect ct = new Connect();
+		Connection cn = ct.getConnect();
+		String sql = "UPDATE order_detail SET into_money = ? WHERE id_book = ?";
+		PreparedStatement ps = cn.prepareStatement(sql);
+		ps.setInt(1, money);
+		ps.setInt(2, idBook);
+		ps.execute();
+	}
 	
 }

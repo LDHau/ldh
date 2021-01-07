@@ -19,7 +19,7 @@
 		Năm xuất bản: <input type="text" value="<%=beanBook.getIntPublishingYear()%>" name="yearb"> <br>
 		Tóm tắt nội dung: <input type="text" value="<%=beanBook.getStrSummary()%>" name="summaryb"> <br>
 		Thể loại sách: <input type="text" value="<%=beanBook.getStrIdCategory()%>" name="categoryb"> <br>
-		Số lượng: <input type="number" value=1 name="quantilyb">
+		Số lượng: <input type="text" value=1 name="quantilyb">
 		
 		<input type="hidden" value="<%=(String)session.getAttribute("idlogin") != null ? "1" : null %>" name="idordersb">
 		
