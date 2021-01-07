@@ -4,7 +4,6 @@ import java.sql.Connection
 ;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bean.BookBean;
@@ -21,14 +20,13 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			int intAmount   = rs.getInt("amount");
+			int intPrice   = rs.getInt("price");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
-			String strStatus  = rs.getString("status");
-			BookBean beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);
+			BookBean beanBook = new BookBean(intIdBook, strName, strAuthor, intPrice, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory);
 			aryBook.add(beanBook);
 			
 		}
@@ -47,14 +45,14 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			int intAmount   = rs.getInt("amount");
+			int intPrice   = rs.getInt("price");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
-			String strStatus  = rs.getString("status");
-			beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
+
+			beanBook = new BookBean(intIdBook, strName, strAuthor, intPrice, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory);	
 			aryBook.add(beanBook);
 		}
 		return aryBook;
@@ -71,14 +69,14 @@ public class BookDao {
 			int intIdBook = rs.getInt("id_book");
 			String strName    = rs.getString("name");
 			String strAuthor  = rs.getString("author");
-			int intAmount = rs.getInt("amount");
+			int intPrice = rs.getInt("price");
 			int intNumberPages = rs.getInt("number_pages");
 			float floWeight   = rs.getFloat("weight");
 			int intPublishingYear = rs.getInt("publishing_year");
 			String strSummary = rs.getString("summary");
 			String strIdCategory = rs.getString("id_category");
-			String strStatus  = rs.getString("status");
-			beanBook = new BookBean(intIdBook, strName, strAuthor, intAmount, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory, strStatus);	
+
+			beanBook = new BookBean(intIdBook, strName, strAuthor, intPrice, intNumberPages, floWeight, intPublishingYear, strSummary, strIdCategory);	
 		}
 		return beanBook;
 	}
@@ -86,35 +84,35 @@ public class BookDao {
 	public void editBook(BookBean bnbook) throws Exception {
 		Connect ct = new Connect();
 		Connection cn = ct.getConnect();
-		String sql = "UPDATE books SET name = ?, author = ?, amount = ?, number_pages = ?, weight = ?, publishing_year = ?, summary = ?, id_category = ?, status = ? WHERE id_book = ?";
+//		String sql = "UPDATE books SET name = ?, author = ?, price = ?, number_pages = ?, weight = ?, publishing_year = ?, summary = ?, id_category = ? WHERE id_book = ?";
+		String sql = "UPDATE books SET name = ?, author = ?, price = ?, number_pages = ?, weight = ?, publishing_year = ?, summary = ?, id_category = ? WHERE id_book = ?";
 		PreparedStatement ps = cn.prepareStatement(sql);
+		
 		ps.setString(1, bnbook.getStrName());
 		ps.setString(2, bnbook.getStrAuthor());
-		ps.setFloat(3, bnbook.getFloWeight());
+		ps.setInt(3, bnbook.getIntPrice());
 		ps.setInt(4, bnbook.getIntNumberPages());
 		ps.setFloat(5, bnbook.getFloWeight());
 		ps.setInt(6, bnbook.getIntPublishingYear());
 		ps.setString(7, bnbook.getStrSummary());
 		ps.setString(8, bnbook.getStrIdCategory());
-		ps.setString(9, bnbook.getStrStatus());
-		ps.setInt(10, bnbook.getIntIdBook());
+		ps.setInt(9, bnbook.getIntIdBook());
 		ps.execute();
 	}
 	
 	public void addBook(BookBean bnbook) throws Exception {
 		Connect ct = new Connect();
 		Connection cn = ct.getConnect();
-		String sql = "INSERT INTO books (name, author, amount, number_pages, weight, publishing_year, summary, id_category, status) VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO books (name, author, price, number_pages, weight, publishing_year, summary, id_category) VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = cn.prepareStatement(sql);
 		ps.setString(1, bnbook.getStrName());
 		ps.setString(2, bnbook.getStrAuthor());
-		ps.setFloat(3, bnbook.getFloWeight());
+		ps.setInt(3, bnbook.getIntPrice());
 		ps.setInt(4, bnbook.getIntNumberPages());
 		ps.setFloat(5, bnbook.getFloWeight());
 		ps.setInt(6, bnbook.getIntPublishingYear());
 		ps.setString(7, bnbook.getStrSummary());
 		ps.setString(8, bnbook.getStrIdCategory());
-		ps.setString(9, bnbook.getStrStatus());
 		ps.execute();
 	}
 	

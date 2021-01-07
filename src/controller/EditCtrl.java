@@ -37,7 +37,7 @@ public class EditCtrl extends HttpServlet {
 		BookDao daoBook = new BookDao();
 		
 		try {
-			request.setAttribute("lsbid", daoBook.getBookById(intIdBook));
+			request.setAttribute("ListByIdBook", daoBook.getBookById(intIdBook));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

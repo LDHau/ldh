@@ -13,17 +13,12 @@
 	<% int count = 1; for(BookBean bo: aryBook) { %>
 	<%=count %> <br>
 	Tên sách:	<%=bo.getStrName() %> <br>
-	Tác giả:	<%=bo.getStrAuthor() %> <br>
-	Giá tiền:	<%=bo.getIntAmount() %> <br>
-	Số trang:	<%=bo.getIntNumberPages() %> <br>
-	Trọng lượng: <%=bo.getFloWeight() %> <br>
-	Năm xuất bản: <%=bo.getIntPublishingYear() %> <br>
-	Tóm tắt nội dung: <%=bo.getStrSummary() %> <br>
-	Tình trạng:	<%=bo.getStrStatus() %> <br>
+	Giá tiền:	<%=bo.getIntPrice() %> <br>
 	<%count++; %>
+	<a href="book-detail-ctrl?idb=<%=bo.getIntIdBook()%>">Detail Book</a><br>
 	<a href="edit-ctrl?idb=<%=bo.getIntIdBook()%>">EDIT</a> <br>
 	<a href="del-ctrl?idb=<%=bo.getIntIdBook()%>">DELETE</a> <br>
-	<a href="shopping-cart-ctrl?idb=<%=bo.getIntIdBook()%>">Them vao gio hang</a> <br>
+
 	<%} %>
 ---------------------------------------------------	<br>
 	

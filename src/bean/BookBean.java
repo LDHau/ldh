@@ -4,39 +4,36 @@ public class BookBean {
 	private int intIdBook;
 	private String strName;
 	private String strAuthor;
-	private int intAmount;
+	private int intPrice;
 	private int intNumberPages;
 	private float floWeight;
 	private int intPublishingYear;
 	private String strSummary;
 	private String strIdCategory;
-	private String strStatus;
 	
-	public BookBean(int _intIdBook, String _strName, String _strAuthor, int _intAmount, int _intNumberPages, float _floWeight,
-						int _intPublishingYear, String _strSummary, String _strIdCategory, String _strStatus) {
+	public BookBean(int _intIdBook, String _strName, String _strAuthor, int _intPrice, int _intNumberPages, float _floWeight,
+						int _intPublishingYear, String _strSummary, String _strIdCategory) {
 		this.intIdBook = _intIdBook;
 		this.strName = _strName;
 		this.strAuthor  = _strAuthor;
-		this.intAmount  = _intAmount;
+		this.intPrice = _intPrice;
 		this.intNumberPages = _intNumberPages;
 		this.floWeight  = _floWeight;
 		this.intPublishingYear = _intPublishingYear;
 		this.strSummary = _strSummary;
 		this.strIdCategory = _strIdCategory;
-		this.strStatus  = _strStatus;
 	}
 
-	public BookBean(String _strName, String _strAuthor, int _intAmount, int _intNumberPages, float _floWeight,
-			int _intPublishingYear, String _strSummary, String _strIdCategory, String _strStatus) {
+	public BookBean(String _strName, String _strAuthor, int _intPrice, int _intNumberPages, float _floWeight,
+			int _intPublishingYear, String _strSummary, String _strIdCategory) {
 		this.strName = _strName;
 		this.strAuthor  = _strAuthor;
-		this.intAmount  = _intAmount;
+		this.intPrice  = _intPrice;
 		this.intNumberPages = _intNumberPages;
 		this.floWeight  = _floWeight;
 		this.intPublishingYear = _intPublishingYear;
 		this.strSummary = _strSummary;
 		this.strIdCategory = _strIdCategory;
-		this.strStatus  = _strStatus;
 	}
 
 	public int getIntIdBook() {
@@ -63,12 +60,12 @@ public class BookBean {
 		this.strAuthor = strAuthor;
 	}
 
-	public float getIntAmount() {
-		return intAmount;
+	public int getIntPrice() {
+		return intPrice;
 	}
 
-	public void setIntAmount(int intAmount) {
-		this.intAmount = intAmount;
+	public void setIntPrice(int intPrice) {
+		this.intPrice = intPrice;
 	}
 
 	public int getIntNumberPages() {
@@ -109,14 +106,5 @@ public class BookBean {
 
 	public void setStrIdCategory(String strIdCategory) {
 		this.strIdCategory = strIdCategory;
-	}
-
-	public String getStrStatus() {
-		return strStatus;
-	}
-
-	public void setStrStatus(String strStatus) {
-		this.strStatus = strStatus;
-	}
-	
+	}	
 }

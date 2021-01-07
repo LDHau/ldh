@@ -11,7 +11,7 @@
 	<form action="add-ctrl" method = "post">
 		Tên sách:	<input type="text" placeholder="Nhập tên sách"  name="nameb"> <br>
 		Tác giả:	<input type="text" placeholder="Nhập tên tác giả"  name="authorb"> <br>
-		Giá:		<input type="text" placeholder="Nhập giá sách" name="amountb"> <br>
+		Giá:		<input type="text" placeholder="Nhập giá sách" name="priceb"> <br>
 		Số trang:	<input type="text" placeholder="Nhập số trang sách"  name="numberb"> <br>
 		Cân nặng: 	<input type="text" placeholder="Nhập cân nặng của sách"  name="weightb"> <br>
 		Năm xuất bản: <input type="text" placeholder="Nhập năm xuất bản"  name="yearb"> <br>

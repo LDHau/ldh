@@ -41,8 +41,8 @@ public class LoginCtrl extends HttpServlet {
 			CustomerBean beanCus = daoCus.getCus(idlog, pass);
 			if(idlog.equals(beanCus.getStrEmail()) && pass.equals(beanCus.getStrPass())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("idl", beanCus.getStrEmail());
-				session.setAttribute("idp", beanCus.getStrPass());
+				session.setAttribute("idlogin", beanCus.getStrEmail());
+				session.setAttribute("idpass", beanCus.getStrPass());
 				response.sendRedirect("list-book");
 				return;
 			}

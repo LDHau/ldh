@@ -34,14 +34,13 @@ public class AddCtrl extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String name = request.getParameter("nameb");
 		String author = request.getParameter("authorb");
-		int amount = Integer.parseInt(request.getParameter("amountb"));
+		int price = Integer.parseInt(request.getParameter("priceb"));
 		int number = Integer.parseInt(request.getParameter("numberb"));
 		float weight = Float.parseFloat(request.getParameter("weightb"));
 		int year = Integer.parseInt(request.getParameter("yearb"));
 		String summary = request.getParameter("summaryb");
 		String category = request.getParameter("categoryb");
-		String status = request.getParameter("statusb");
-		BookBean beanBook = new BookBean(name, author, amount, number, weight, year, summary, category, status);
+		BookBean beanBook = new BookBean(name, author, price, number, weight, year, summary, category);
 		BookDao bdao = new BookDao();
 		
 		try {
