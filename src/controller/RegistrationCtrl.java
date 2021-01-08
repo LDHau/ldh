@@ -1,27 +1,26 @@
 package controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.BookBean;
-import dao.BookDao;
+import bean.CustomerBean;
+import dao.CustomerDao;
 
 /**
- * Servlet implementation class AddCtrl
+ * Servlet implementation class RegistrationCtrl
  */
-@WebServlet("/add-ctrl")
-public class AddCtrl extends HttpServlet {
+@WebServlet("/registration-ctrl")
+public class RegistrationCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddCtrl() {
+    public RegistrationCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +31,21 @@ public class AddCtrl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		String name = request.getParameter("nameb");
-		String author = request.getParameter("authorb");
-		int price = Integer.parseInt(request.getParameter("priceb"));
-		int number = Integer.parseInt(request.getParameter("numberb"));
-		float weight = Float.parseFloat(request.getParameter("weightb"));
-		int year = Integer.parseInt(request.getParameter("yearb"));
-		String summary = request.getParameter("summaryb");
-		String category = request.getParameter("categoryb");
-		BookBean beanBook = new BookBean(name, author, price, number, weight, year, summary, category);
-		BookDao bdao = new BookDao();
+		CustomerDao daoCus = new CustomerDao();
+		
+		String name = request.getParameter("name");
+		int phone = Integer.parseInt(request.getParameter("phone"));
+		String mail = request.getParameter("idMail");
+		String pass = request.getParameter("pass");
+		CustomerBean beanCus = new CustomerBean(name, phone, mail, pass);
 		
 		try {
-			bdao.addBook(beanBook);
+			 daoCus.addCus(beanCus);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		response.sendRedirect("list-book");
+		response.sendRedirect("list-customer-ctrl");
 	}
 
 	/**

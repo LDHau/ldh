@@ -84,7 +84,6 @@ public class BookDao {
 	public void editBook(BookBean bnbook) throws Exception {
 		Connect ct = new Connect();
 		Connection cn = ct.getConnect();
-//		String sql = "UPDATE books SET name = ?, author = ?, price = ?, number_pages = ?, weight = ?, publishing_year = ?, summary = ?, id_category = ? WHERE id_book = ?";
 		String sql = "UPDATE books SET name = ?, author = ?, price = ?, number_pages = ?, weight = ?, publishing_year = ?, summary = ?, id_category = ? WHERE id_book = ?";
 		PreparedStatement ps = cn.prepareStatement(sql);
 		
